@@ -7,7 +7,7 @@ from django.contrib.sessions.backends.cache import SessionStore
 
 
 def index(request):
-    return render(request, 'psy_lk/index.html')
+    return render(request, 'psy_lk/1_pages/index.html')
 
 
 def create_complaint(request):

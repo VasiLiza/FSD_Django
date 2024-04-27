@@ -1,0 +1,30 @@
+<div class="modal fade" id="complaintModal" tabindex="-1" aria-labelledby="complaintModalLabel" aria-hidden="true"
+     xmlns="http://www.w3.org/1999/html">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-container" action="#" hx-post="{% url 'create_complaint' %}"
+                  hx-target="#error_message" hx-vals="js:{}" autocomplete="off">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Пожаловаться</h5>
+                    {% include "psy_lk/5_shared/abstract_buttons/close_button.html" %}
+                </div>
+                <div class="modal-body">
+                    <p id="error_message" style="color: #FF4F4F"></p>
+                    {% csrf_token %}
+                    <div class="form-group ms-auto">
+                        {% include "psy_lk/3_features/modal_complaint/fields/fio_field.html" %}
+                    </div>
+                    <div class="form-group">
+                        {% include "psy_lk/3_features/modal_complaint/fields/complaint_field.html" %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {% include "psy_lk/3_features/modal_complaint/buttons/dismiss_button.html" %}
+                    {% include "psy_lk/3_features/modal_complaint/buttons/accept_button.html" %}
+                    {% include "psy_lk/5_shared/htmx_indicator.html" %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
