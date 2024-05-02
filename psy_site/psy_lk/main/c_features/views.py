@@ -6,13 +6,14 @@ from django.http import JsonResponse, HttpResponse
 from django.contrib.sessions.backends.cache import SessionStore
 
 
-def index(request):
-    return render(request, 'psy_lk/1_pages/index.html')
-
-
 def create_complaint(request):
     if request.method == 'POST':
         resp = HttpResponse("Неизвестная ошибка. Жалоба не создана")
         return resp
     else:
         return JsonResponse({'error': 'Неверный метод запроса'}, status=400)
+
+
+def card_panel(request):
+    return render(request, 'psy_lk/3_features/card_panel.html')
+

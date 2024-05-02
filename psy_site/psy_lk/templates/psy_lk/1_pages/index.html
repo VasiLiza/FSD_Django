@@ -23,7 +23,9 @@
     </div>
 </div>
 <div class="container w-100">
-    {% include "psy_lk/3_features/card_panel.html" %}
+    <div id="cards_table_place" hx-get="{% url 'card_panel' %}" hx-trigger="load once">
+        {% include "psy_lk/5_shared/htmx_indicator.html" %}
+    </div>
     {% include "psy_lk/2_widgets/modal_complaint.html" %}
 </div>
 </body>
